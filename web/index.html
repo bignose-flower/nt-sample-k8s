@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple UI</title>
+</head>
+<body>
+    <button id="fetchButton">Fetch Data</button>
+    <div id="response"></div>
+
+    <script>
+        const BASE_URL = "http://10.100.92.251:30090";
+
+        const fetchButton = document.getElementById("fetchButton");
+        const responseDiv = document.getElementById("response");
+
+        fetchButton.addEventListener("click", async () => {
+            try {
+                const response = await fetch(`${BASE_URL}/hello`);
+                const data = await response.json();
+                responseDiv.innerText = JSON.stringify(data);
+            } catch (error) {
+                console.error("Error fetching data:", error);
+                responseDiv.innerText = "Error fetching data. Please try again later.";
+            }
+        });
+    </script>
+</body>
+</html>
