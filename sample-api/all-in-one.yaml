@@ -84,7 +84,7 @@ metadata:
   labels:
     app: api-service1
 spec:
-  replicas: 2
+  replicas: 4
   selector:
     matchLabels:
       app: api-service1
